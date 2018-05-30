@@ -26,4 +26,8 @@ An app that uses a makeup API to assemble a gift set that follows a certain budg
 ![](https://meta.filipstepien.com/makeup.email.png)
 ![](https://meta.filipstepien.com/makeup.email.display.png)
 
+#### Email Link Example 
+
+[http://makeupagift.filipstepien.com/your-gift/920/247/885](http://makeupagift.filipstepien.com/your-gift/920/247/885)
+
 #### App Structure / Team Programming

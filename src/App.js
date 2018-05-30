@@ -7,6 +7,7 @@ import Slider from "./components/Slider";
 import ProductDisplay from "./components/ProductDisplay";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import styled from "styled-components";
 
 class App extends Component {
   state = {
