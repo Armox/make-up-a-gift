@@ -80,6 +80,8 @@ class App extends Component {
     }
   };
 
+  sliderRef = React.createRef();
+
   componentDidMount() {
     axios({
       method: "GET",
@@ -157,7 +159,7 @@ class App extends Component {
   };
 
   checkThree = () => {
-    console.log("running CheckThree");
+    // console.log("running CheckThree");
     Object.values(this.state.selectedType).reduce(
       (accumulator, currentValue, currentIndex, array) =>
         accumulator + currentValue
@@ -180,7 +182,7 @@ class App extends Component {
       this.setState({ budget });
       this.setBudget();
     } else {
-      console.log("NOT data available");
+      console.log("data loading...");
       const budget = { ...this.state.budget };
       budget.loader = true;
       this.setState({ budget });
@@ -195,7 +197,7 @@ class App extends Component {
     const arraySelected = Object.keys(this.state.selectedType).filter(
       key => this.state.selectedType[key]
     );
-    console.log(arraySelected);
+    // console.log(arraySelected);
     arraySelected.forEach(type => {
       budget.minThree.push(this.state.minmax[type].min);
       budget.maxThree.push(this.state.minmax[type].max);
@@ -307,12 +309,11 @@ class App extends Component {
             />
           </div>
           <div className="slider wrap">
-            {this.state.budget.loader === true &&
-              this.state.budget.range === null && <div>display loader </div>}
             {this.state.budget.range !== null && (
               <Slider
                 budget={this.state.budget}
                 setBudget={this.setBudgetRange}
+                ref={this.sliderRef}
               />
             )}
           </div>

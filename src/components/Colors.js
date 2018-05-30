@@ -1,7 +1,7 @@
 import React from "react";
 
 const Colors = props => {
-  console.log(props);
+  // console.log(props);
   const { colors } = props;
   const colorItem = colors.slice(0, 20).map((color, i) => (
     <li

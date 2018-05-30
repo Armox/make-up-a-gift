@@ -27,7 +27,7 @@ class SendEmail extends Component {
     const url = `https://makeupagift.filipstepien.com/your-gift/${
       this.props.products.product1.id
     }/${this.props.products.product2.id}/${this.props.products.product3.id}`;
-    console.log(name, email);
+    console.log("sending your email, wait for staus message...");
     axios
       .post(`https://us-central1-make-up-a-gift.cloudfunctions.net/httpEmail`, {
         toName: name,

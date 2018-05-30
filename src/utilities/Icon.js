@@ -263,16 +263,16 @@ export default class Icon extends Component {
             viewBox="0 0 60 75"
             x="0px"
             y="0px"
-            width="24px"
-            height="24px"
+            width="50px"
+            height="50px"
           >
             <path
-              class="cls-1"
+              className="cls-1"
               d="M4.91719,36.76415H20.74361a0,0,0,0,1,0,0V54.558a1,1,0,0,1-1,1H5.91719a1,1,0,0,1-1-1V36.76415a0,0,0,0,1,0,0Z"
               transform="translate(36.39875 4.4478) rotate(45)"
             />
             <rect
-              class="cls-1"
+              className="cls-1"
               x="9.99325"
               y="36.13927"
               width="21.76133"
@@ -282,21 +282,21 @@ export default class Icon extends Component {
               transform="translate(33.06702 -3.5957) rotate(45)"
             />
             <path
-              class="cls-1"
+              className="cls-1"
               d="M16.75844,33.34153H30.58486a1,1,0,0,1,1,1v2.9566a0,0,0,0,1,0,0H15.75844a0,0,0,0,1,0,0v-2.9566a1,1,0,0,1,1-1Z"
               transform="translate(31.90816 -6.39345) rotate(45)"
             />
             <path
-              class="cls-1"
+              className="cls-1"
               d="M25.7911,17.87939H37.63922a1,1,0,0,1,1,1V36.67326a0,0,0,0,1,0,0H24.7911a0,0,0,0,1,0,0V18.87939A1,1,0,0,1,25.7911,17.87939Z"
               transform="translate(28.57643 -14.43695) rotate(45)"
             />
             <path
-              class="cls-1"
+              className="cls-1"
               d="M46.06408,4.54816l-.007.007-.007-.007-.26579.26579L34.16318,16.43507l8.39323,8.39323L57.276,10.10868"
             />
             <ellipse
-              class="cls-1"
+              className="cls-1"
               cx="51.53043"
               cy="7.46105"
               rx="7.602"
@@ -304,7 +304,7 @@ export default class Icon extends Component {
               transform="translate(-0.1752 13.59129) rotate(-15)"
             />
             <line
-              class="cls-1"
+              className="cls-1"
               x1="37.66036"
               y1="25.52774"
               x2="29.96657"

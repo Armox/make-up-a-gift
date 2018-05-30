@@ -2,8 +2,9 @@ import React, { Component, Fragment } from "react";
 import ProductItem from "./ProductItem";
 import { Toggle, Modal } from "./../utilities";
 import SendEmail from "./SendEmail";
+import Icon from "./../utilities/Icon";
 
-class ProductDisplay extends React.Component {
+class ProductDisplay extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -34,7 +35,6 @@ class ProductDisplay extends React.Component {
       nextProps.product2 !== this.props.product2 &&
       nextProps.product1 !== this.props.product1
     ) {
-  
       const { product1, product2, product3 } = nextProps;
       const products = Object.assign({}, this.state.products);
       products.product1.id = product1.id;
@@ -43,19 +43,20 @@ class ProductDisplay extends React.Component {
       products.product2.type = product2;
       products.product3.id = product3.id;
       products.product3.type = product3;
-      
+
       this.setState({ dataLoaded: true, products });
     }
   }
 
   toggleLock = (type, id) => {
-    const { products } = this.state;
-    console.log(products);
+    // const { products } = this.state;
+    const products = { ...this.state.products };
+    // console.log(products);
     for (const product in products) {
-      console.log(products[product]);
+      // console.log(products[product]);
       if (products[product].id === id) {
         products[product].locked = !products[product].locked;
-        this.setState({products});
+        this.setState({ products });
       }
     }
   };
@@ -63,9 +64,10 @@ class ProductDisplay extends React.Component {
   render() {
     const state = Object.assign({}, this.state);
     const { product1, product2, product3 } = this.props;
-    const { dataLoaded, products} = this.state;
+    const { dataLoaded, products } = this.state;
 
-    return <div className="type clearfix displayBox">
+    return (
+      <div className="type clearfix displayBox">
         <div className="product">
           {dataLoaded ? (
             <ProductItem
@@ -73,7 +75,9 @@ class ProductDisplay extends React.Component {
               toggleLock={this.toggleLock}
               locked={products.product1.locked}
             />
-          ) : null}
+          ) : (
+            <Icon className="loading-icon" name="lipstick" />
+          )}
         </div>
         <div className="product">
           {dataLoaded ? (
@@ -82,26 +86,40 @@ class ProductDisplay extends React.Component {
               toggleLock={this.toggleLock}
               locked={products.product2.locked}
             />
-          ) : null}
+          ) : (
+            <Icon className="loading-icon" name="lipstick" />
+          )}
         </div>
         <div className="product">
           {dataLoaded ? (
-          <ProductItem 
-              product={product3} 
-              toggleLock={this.toggleLock} 
-              locked={products.product3.locked}/>
-          ) : null}
+            <ProductItem
+              product={product3}
+              toggleLock={this.toggleLock}
+              locked={products.product3.locked}
+            />
+          ) : (
+            <Icon className="loading-icon" name="lipstick" />
+          )}
         </div>
-        <input type="button" value="generate" onClick={() => this.props.generate(this.state.products)} />
+        <input
+          type="button"
+          value="generate new items"
+          onClick={() => this.props.generate(this.state.products)}
+        />
         <Toggle>
-          {({ on, toggle }) => <Fragment>
-              <button className="emailBtn" onClick={toggle}>Email My Results</button>
+          {({ on, toggle }) => (
+            <Fragment>
+              <button className="emailBtn" onClick={toggle}>
+                Email My Results
+              </button>
               <Modal on={on} toggle={toggle}>
                 <SendEmail products={this.state.products} toggle={toggle} />
               </Modal>
-            </Fragment>}
+            </Fragment>
+          )}
         </Toggle>
-      </div>;
+      </div>
+    );
   }
 }
 
